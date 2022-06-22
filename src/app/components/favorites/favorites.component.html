@@ -1,0 +1,14 @@
+<div class="card" style="width: 80rem;margin-right: auto; margin-left: auto;text-align: center; ">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="">מזג אויר</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="favorites">מועדפים</a>
+        </li>
+    </ul>
+    <p>favorites works!</p>
+    <div *ngFor="let f of favorites">
+        <div>{{f.Key}}{{f.name}}{{f.weather}}</div>
+    </div>
+</div>

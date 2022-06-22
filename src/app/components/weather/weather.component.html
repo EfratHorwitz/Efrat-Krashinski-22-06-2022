@@ -1,0 +1,37 @@
+<div class="card" style="width: 80rem;margin-right: auto; margin-left: auto;text-align: center; ">
+    <div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="">מזג אויר</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="favorites">מועדפים</a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <div class="col-md-4 col-sm-8">
+            <input [(ngModel)]="cityName" class="form-control" type="text" placeholder="חפש עיר"
+                (ngModelChange)="autoComplete()">
+
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="selectedCityKey"
+                (ngModelChange)="selectedCity()">
+                <option *ngFor="let c of cities" value={{c.Key}}>{{c.LocalizedName}}</option>
+            </select>
+        </div>
+        <div class="card" style="width: 18rem; margin-right: auto; margin-left: auto;text-align: center;">
+            the current weather:
+            {{Weather}}
+        </div>
+        <div class="container">
+            <div class="card ; col-md-12 col-sm-8">
+                the 5 days later:
+                <ul class="list-group" *ngFor="let n of nextWeather" >
+                    <div class="card; col-md-4 col-sm-6">{{n.Date | date:'fullDate'}} {{n.Day.IconPhrase}}</div>
+                </ul>
+            </div>
+            <input class="form-check-input" type="checkbox" value="" [(ngModel)]="check" (ngModelChange)="addToFavorites()">
+            <i class="bi bi-heart"></i>add to favorites
+        </div>
+    </div>
+</div>
